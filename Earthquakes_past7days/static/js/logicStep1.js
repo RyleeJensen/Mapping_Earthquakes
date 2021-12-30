@@ -38,10 +38,5 @@ let earthquake = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
 d3.json(earthquake).then(function(data) {
     console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
-  L.geoJSON(data, {
-      onEachFeature: function(feature, layer) {
-          console.log(layer);
-          //layer.bindPopup("<h2>" + "Neighborhood: " + feature.properties.AREA_NAME + "<h/2>");
-      }
-    }).addTo(map);
+  L.geoJSON(data).addTo(map);
 });
